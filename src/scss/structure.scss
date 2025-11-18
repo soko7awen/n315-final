@@ -18,16 +18,36 @@ p {
 }
 
 nav {
-  height: 50px;
-  background-color: #000;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  gap: 1rem;
+  background-color: #000;
+  height: 60px;
 
   a {
     text-decoration: none;
     color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
   }
+}
+
+.nav-item {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  margin-top: 10px;
+}
+
+.nav-item.has-children:hover .submenu {
+  display: block;
 }
 
 .btn {
