@@ -1,4 +1,5 @@
 import $ from "jquery";
+import html from "./home.htm?raw"
 
 export const meta = {
   order: 1,
@@ -7,14 +8,31 @@ export const meta = {
 };
 
 export function render() {
-  return `<h1>Welcome to the Home Page</h1>
-<div id="clickMe" class="btn">Click Me</div>`;
+  return `<main id="content" class="${meta.id}">${html}</main>`
 }
 
 export function init() {
-  console.log("home function called");
+  prepareDropdowns()
+}
 
-  $("#clickMe").on("click", function () {
-    alert("You clicked the button on the Home Page!");
+function prepareDropdowns() {
+  const facets = document.querySelectorAll('.facet');
+
+  facets.forEach(facet => {
+    const btn = facet.querySelector('.facet-btn');
+    const panel = facet.querySelector('.facet-panel');
+
+    facet.addEventListener('mouseenter', () => {
+      document.querySelectorAll('.facet-panel').forEach(p => p.classList.remove('open'));
+      document.querySelectorAll('.facet-btn').forEach(b => b.classList.remove('active'));
+
+      panel.classList.add('open');
+      btn.classList.add('active');
+    });
+
+    facet.addEventListener('mouseleave', () => {
+      panel.classList.remove('open');
+      btn.classList.remove('active');
+    });
   });
 }

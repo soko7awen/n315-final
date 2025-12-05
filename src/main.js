@@ -33,41 +33,41 @@ routeList.forEach((route) => {
   childrenByParent[route.parent].push(route);
 });
 
-function buildNav() {
-  const $nav = $("nav"); // assume <nav></nav> in index.html
+// function buildNav() {
+//   const $nav = $("#myTopnav");
 
-  const topLevel = routeList.filter((r) => !r.parent);
+//   const topLevel = routeList.filter((r) => !r.parent);
 
-  const html = topLevel
-    .map((route) => {
-      const children = childrenByParent[route.id] || [];
+//   const html = topLevel
+//     .map((route) => {
+//       const children = childrenByParent[route.id] || [];
 
-      if (children.length === 0) {
-        // simple top-level link
-        return `<a href="#${route.id}" class="nav-link">${route.label}</a>`;
-      }
+//       if (children.length === 0) {
+//         // simple top-level link
+//         return `<a href="#${route.id}" class="nav-link">${route.label}</a>`;
+//       }
 
-      // parent with submenu
-      const submenuLinks = children
-        .map(
-          (child) =>
-            `<a href="#${child.id}" class="submenu-link">${child.label}</a>`
-        )
-        .join("");
+//       // parent with submenu
+//       const submenuLinks = children
+//         .map(
+//           (child) =>
+//             `<a href="#${child.id}" class="submenu-link">${child.label}</a>`
+//         )
+//         .join("");
 
-      return `
-        <div class="nav-item has-children">
-          <a href="#${route.id}" class="nav-link parent-link">${route.label}</a>
-          <div class="submenu">
-            ${submenuLinks}
-          </div>
-        </div>
-      `;
-    })
-    .join("");
+//       return `
+//         <div class="nav-item has-children">
+//           <a href="#${route.id}" class="nav-link parent-link">${route.label}</a>
+//           <div class="submenu">
+//             ${submenuLinks}
+//           </div>
+//         </div>
+//       `;
+//     })
+//     .join("");
 
-  $nav.html(html);
-}
+//   $nav.html(html);
+// }
 
 function changeRoute() {
   let pageID = window.location.hash.replace("#", "") || "home";
@@ -86,6 +86,6 @@ function initURLListener() {
 }
 
 $(document).ready(function () {
-  buildNav();
+  // buildNav();
   initURLListener();
 });
