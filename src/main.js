@@ -1,6 +1,7 @@
 import "./scss/styles.scss";
 import $ from "jquery";
 import { auth } from "./firebase";
+import swal from "sweetalert";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -101,6 +102,17 @@ function initURLListener() {
   changeRoute();
 }
 
+function initNavToggle() {
+  const nav = document.querySelector(".topnav");
+  const toggle = document.querySelector(".nav-toggle");
+  if (!nav || !toggle) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("mobile-open");
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+}
+
 function initAccountPanel() {
   const panel = document.querySelector(".account-panel");
   const menu = document.querySelector(".account-menu");
@@ -112,7 +124,6 @@ function initAccountPanel() {
   const emailInput = panel.querySelector('input[name="email"]');
   const passwordInput = panel.querySelector('input[name="password"]');
   const usernameInput = panel.querySelector('input[name="username"]');
-  let currentUser = null;
 
   const radios = panel.querySelectorAll('input[name="authMode"]');
   const applyMode = () => {
@@ -128,18 +139,18 @@ function initAccountPanel() {
     document.querySelector(".cart-menu")?.classList.remove("open");
     clearTimeout(hideTimeout);
     menu.classList.add("open");
-    refreshLoggedInStatus();
+    refreshLoggedInStatus({ notify: false });
   };
   const scheduleHide = () => {
     if (!menu) return;
     clearTimeout(hideTimeout);
     hideTimeout = setTimeout(() => {
       menu.classList.remove("open");
-      clearFields();
+      clearFields({ clearEmail: false });
       if (!currentUser) {
-        setStatus("");
+        setStatus("", false, { notify: false });
       } else {
-        refreshLoggedInStatus();
+        refreshLoggedInStatus({ notify: false });
       }
     }, 200);
   };
@@ -157,10 +168,19 @@ function initAccountPanel() {
 
   applyMode();
 
-  const setStatus = (msg, isError = false) => {
+  const setStatus = (msg, isError = false, { notify = true } = {}) => {
     if (!statusEl) return;
     statusEl.textContent = msg;
     statusEl.classList.toggle("error", isError);
+    const lower = (msg || "").toLowerCase();
+    if (notify && msg && !lower.includes("working") && !lower.includes("signing out")) {
+      swal({
+        icon: isError ? "error" : "success",
+        title: msg,
+        buttons: false,
+        timer: 1800,
+      });
+    }
   };
 
   const clearFields = ({ clearEmail = true } = {}) => {
@@ -177,9 +197,9 @@ function initAccountPanel() {
     signoutBtn.disabled = busy;
   };
 
-  const refreshLoggedInStatus = () => {
+  const refreshLoggedInStatus = ({ notify = true } = {}) => {
     if (currentUser) {
-      setStatus(`Logged in as ${currentUser.email}`);
+      setStatus(`Logged in as ${currentUser.email}`, false, { notify });
     }
   };
 
@@ -262,8 +282,8 @@ function initAccountPanel() {
       if (el) el.disabled = isLoggedIn;
     });
     clearFields();
-    setStatus(isLoggedIn ? `Logged in as ${user.email}` : "");
-    refreshLoggedInStatus();
+    setStatus(isLoggedIn ? `Logged in as ${user.email}` : "", false, { notify: false });
+    refreshLoggedInStatus({ notify: false });
     if (!isLoggedIn) {
       cart = [];
       if (typeof window.refreshCartPanel === "function") {
@@ -299,6 +319,15 @@ function initCartPanel() {
     if (!statusEl) return;
     statusEl.textContent = msg;
     statusEl.classList.toggle("error", isError);
+    const lower = (msg || "").toLowerCase();
+    if (msg && !lower.includes("sign out")) {
+      swal({
+        icon: isError ? "error" : "success",
+        title: msg,
+        buttons: false,
+        timer: 1600,
+      });
+    }
   };
 
   const renderCart = () => {
@@ -394,6 +423,7 @@ function initCartPanel() {
 $(document).ready(function () {
   // buildNav();
   initURLListener();
+  initNavToggle();
   initAccountPanel();
   initCartPanel();
 });
