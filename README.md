@@ -1,4 +1,4 @@
-# N315 Final – Keurig-Inspired Storefront
+# N315 Final – Keurig Recreation
 
 Live build: [Web4 Deployment](https://in-info-web4.luddy.indianapolis.iu.edu/~hhamelin/Y4/FA25/N315/final)
 
