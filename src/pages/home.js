@@ -12,30 +12,122 @@ export function render() {
 }
 
 export function init() {
-  prepareDropdowns()
+  initFacets()
   renderProducts()
 }
 
-function prepareDropdowns() {
-  const facets = document.querySelectorAll('.facet');
+function initFacets() {
+  const facetSections = document.querySelectorAll('.facet');
+  const isMobileView = () => window.matchMedia('(max-width: 900px)').matches;
+  const overlay = ensureSharedOverlay();
 
-  facets.forEach(facet => {
-    const btn = facet.querySelector('.facet-btn');
+  const closeAllPanels = () => {
+    if (typeof window.closePanels === 'function') {
+      window.closePanels({
+        resetFacetButtons: true,
+        overlaySelectors: ['.overlay'],
+      });
+      if (typeof window.setPanelScrollLock === 'function') {
+        window.setPanelScrollLock(false);
+      }
+      return;
+    }
+    document.querySelectorAll('.panel').forEach((p) => p.classList.remove('open'));
+    document.querySelectorAll('.facet-btn').forEach((b) => {
+      b.classList.remove('active');
+      b.setAttribute('aria-expanded', 'false');
+    });
+    if (overlay) overlay.classList.remove('active');
+    if (typeof window.setPanelScrollLock === 'function') {
+      window.setPanelScrollLock(false);
+    }
+  };
+
+  facetSections.forEach((facet) => {
+    const trigger = facet.querySelector('.facet-btn');
     const panel = facet.querySelector('.facet-panel');
+    if (!trigger || !panel) return;
+    const closeBtn = injectPanelClose(panel, closeAllPanels);
 
     facet.addEventListener('mouseenter', () => {
-      document.querySelectorAll('.facet-panel').forEach(p => p.classList.remove('open'));
-      document.querySelectorAll('.facet-btn').forEach(b => b.classList.remove('active'));
-
+      if (isMobileView()) return;
+      closeAllPanels();
       panel.classList.add('open');
-      btn.classList.add('active');
+      trigger.classList.add('active');
+      trigger.setAttribute('aria-expanded', 'true');
     });
 
     facet.addEventListener('mouseleave', () => {
+      if (isMobileView()) return;
       panel.classList.remove('open');
-      btn.classList.remove('active');
+      trigger.classList.remove('active');
+      trigger.setAttribute('aria-expanded', 'false');
+    });
+
+    trigger.addEventListener('click', (event) => {
+      if (!isMobileView()) return;
+      event.preventDefault();
+      const alreadyOpen = panel.classList.contains('open');
+      closeAllPanels();
+      if (!alreadyOpen) {
+        panel.classList.add('open');
+        trigger.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+        if (overlay) overlay.classList.add('active');
+        if (typeof window.setPanelScrollLock === 'function') {
+          window.setPanelScrollLock(true);
+        }
+      }
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      trigger.focus({ preventScroll: true });
     });
   });
+
+  if (overlay) {
+    overlay.addEventListener('click', closeAllPanels);
+  }
+
+  window.addEventListener('resize', closeAllPanels);
+}
+
+function ensurePanelOverlay() {
+  console.warn('ensurePanelOverlay is deprecated; use ensureSharedOverlay instead.');
+  return ensureSharedOverlay();
+}
+
+function ensureSharedOverlay() {
+  let overlay = document.querySelector('.overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    overlay.id = 'app-overlay';
+    document.body.appendChild(overlay);
+  }
+  return overlay;
+}
+
+function injectPanelClose(panel, onClose) {
+  const container = panel.querySelector('.facet-panel-contents');
+  if (!container) return null;
+  let closeBtn = panel.querySelector('.facet-close');
+  if (!closeBtn) {
+    closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'facet-close';
+    closeBtn.setAttribute('aria-label', 'Close filters');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      onClose();
+      if (typeof window.setPanelScrollLock === 'function') {
+        window.setPanelScrollLock(false);
+      }
+    });
+    container.prepend(closeBtn);
+  }
+  return closeBtn;
 }
 
 async function renderProducts() {
@@ -47,7 +139,7 @@ async function renderProducts() {
     if (!response.ok) throw new Error('Unable to load products');
 
     const products = await response.json();
-    window.productData = products; // expose for cart usage
+    window.productData = products;
     if (typeof window.setProductData === 'function') {
       window.setProductData(products);
     }

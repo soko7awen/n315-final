@@ -1,7 +1,6 @@
 import "./scss/styles.scss";
 import $ from "jquery";
 import { auth } from "./firebase";
-import swal from "sweetalert";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -39,6 +38,122 @@ const routes = {};
 routeList.forEach((r) => {
   routes[r.id] = r;
 });
+
+// Shared panel helper for facets/nav/etc.
+function closePanels({ panelSelector = ".panel", openClass = "open", resetFacetButtons = false, overlaySelectors = [] } = {}) {
+  document.querySelectorAll(panelSelector).forEach((panel) => panel.classList.remove(openClass));
+
+  if (resetFacetButtons) {
+    document.querySelectorAll(".facet-btn").forEach((btn) => {
+      btn.classList.remove("active");
+      btn.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  overlaySelectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el) => el.classList.remove("active"));
+  });
+}
+
+function setPanelScrollLock(lock = false) {
+  document.body.classList.toggle("panel-open", !!lock);
+}
+
+function syncPanelParent(menu, panel) {
+  if (!menu || !panel) return;
+  const target = isMobileNav() ? document.body : menu;
+  if (panel.parentElement !== target) {
+    target.appendChild(panel);
+  }
+}
+
+function blurNavFocus() {
+  const active = document.activeElement;
+  if (active && active.closest(".topnav") && typeof active.blur === "function") {
+    active.blur();
+  }
+}
+
+function blurMenuLink(selector) {
+  const link = document.querySelector(selector);
+  if (link && typeof link.blur === "function") {
+    link.blur();
+  }
+}
+
+function showTransientAlert({ title, icon = "success", duration = 1800 }) {
+  if (!title) return;
+
+  const containerId = "app-toast-container";
+  let container = document.getElementById(containerId);
+  if (!container) {
+    container = document.createElement("div");
+    container.id = containerId;
+    container.className = "app-toast-container";
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement("div");
+  toast.className = `app-toast ${icon === "error" ? "error" : "success"}`;
+  toast.textContent = title;
+  container.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add("visible"));
+
+  setTimeout(() => {
+    toast.classList.remove("visible");
+    setTimeout(() => {
+      toast.remove();
+      document.querySelectorAll(".overlay").forEach((el) => el.classList.remove("active"));
+      document.body.classList.remove("nav-modal-open", "panel-open");
+      setPanelScrollLock(false);
+    }, 200);
+  }, duration);
+}
+
+window.closePanels = closePanels;
+window.setPanelScrollLock = setPanelScrollLock;
+
+const navOverlay = ensureOverlay();
+const isMobileNav = () => window.matchMedia("(max-width: 900px)").matches;
+
+function ensureOverlay() {
+  let overlay = document.querySelector(".overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "overlay";
+    overlay.id = "app-overlay";
+    document.body.appendChild(overlay);
+  }
+  return overlay;
+}
+
+function toggleNavOverlay(show) {
+  if (!navOverlay) return;
+  navOverlay.classList.toggle("active", !!show);
+  document.body.classList.toggle("nav-modal-open", !!show);
+  setPanelScrollLock(show);
+}
+
+function closeAllNavPanels() {
+  document.querySelectorAll(".nav-panel").forEach((panel) => {
+    const parentMenu = panel.closest("li");
+    if (parentMenu) {
+      parentMenu.classList.remove("open");
+      forceHideNavPanel(parentMenu);
+    }
+  });
+  closePanels({ panelSelector: ".nav-panel", overlaySelectors: [".overlay"] });
+  document.body.classList.remove("nav-modal-open");
+  setPanelScrollLock(false);
+  blurNavFocus();
+}
+
+function forceHideNavPanel(menuEl) {
+  if (!menuEl) return;
+  menuEl.classList.add("closing");
+  setTimeout(() => menuEl.classList.remove("closing"), 200);
+}
 
 // 5) Build a parent → children map for nav
 const childrenByParent = {};
@@ -117,6 +232,8 @@ function initAccountPanel() {
   const panel = document.querySelector(".account-panel");
   const menu = document.querySelector(".account-menu");
   if (!panel) return;
+  syncPanelParent(menu, panel);
+  const closeBtn = injectNavClose(panel);
 
   const statusEl = panel.querySelector(".auth-status");
   const submitBtn = panel.querySelector(".auth-submit");
@@ -134,33 +251,90 @@ function initAccountPanel() {
 
   // Keep panel open while moving between trigger and panel
   let hideTimeout;
-  const openPanel = () => {
+  const openPanel = (withOverlay = true) => {
     if (!menu) return;
     document.querySelector(".cart-menu")?.classList.remove("open");
+    blurMenuLink(".cart-menu a");
     clearTimeout(hideTimeout);
     menu.classList.add("open");
+    panel.classList.add("open");
     refreshLoggedInStatus({ notify: false });
+    if (isMobileNav() && withOverlay) {
+      toggleNavOverlay(true);
+      setPanelScrollLock(true);
+    }
   };
   const scheduleHide = () => {
     if (!menu) return;
     clearTimeout(hideTimeout);
     hideTimeout = setTimeout(() => {
-      menu.classList.remove("open");
-      clearFields({ clearEmail: false });
-      if (!currentUser) {
-        setStatus("", false, { notify: false });
-      } else {
-        refreshLoggedInStatus({ notify: false });
-      }
+      closePanel();
     }, 200);
   };
 
-  if (menu) {
-    menu.addEventListener("mouseenter", openPanel);
-    menu.addEventListener("mouseleave", scheduleHide);
-    panel.addEventListener("mouseenter", openPanel);
-    panel.addEventListener("mouseleave", scheduleHide);
+  const closePanel = () => {
+    menu?.classList.remove("open");
+    panel.classList.remove("open");
+    forceHideNavPanel(menu);
+    if (!document.querySelector(".cart-menu.open")) toggleNavOverlay(false);
+    clearFields({ clearEmail: false });
+    if (!currentUser) {
+      setStatus("", false, { notify: false });
+    } else {
+      refreshLoggedInStatus({ notify: false });
+    }
+  };
+
+  if (navOverlay) {
+    navOverlay.addEventListener("click", () => {
+      closeAllNavPanels();
+    });
   }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closePanel();
+      closeAllNavPanels();
+    });
+  }
+
+  if (menu) {
+    menu.querySelector("a")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (menu.classList.contains("open")) {
+        closePanel();
+      } else {
+        openPanel();
+      }
+    });
+    menu.addEventListener("mouseenter", () => {
+      if (isMobileNav()) return;
+      blurMenuLink(".cart-menu a");
+      openPanel(false);
+    });
+    menu.addEventListener("mouseleave", () => {
+      if (isMobileNav()) return;
+      scheduleHide();
+    });
+    panel.addEventListener("mouseenter", () => {
+      if (isMobileNav()) return;
+      clearTimeout(hideTimeout);
+    });
+    panel.addEventListener("mouseleave", () => {
+      if (isMobileNav()) return;
+      scheduleHide();
+    });
+  }
+
+  window.addEventListener("resize", () => {
+    syncPanelParent(menu, panel);
+    if (isMobileNav()) {
+      panel.classList.remove("open");
+      menu?.classList.remove("open");
+    }
+  });
 
   radios.forEach((radio) => {
     radio.addEventListener("change", applyMode);
@@ -174,11 +348,10 @@ function initAccountPanel() {
     statusEl.classList.toggle("error", isError);
     const lower = (msg || "").toLowerCase();
     if (notify && msg && !lower.includes("working") && !lower.includes("signing out")) {
-      swal({
+      showTransientAlert({
         icon: isError ? "error" : "success",
         title: msg,
-        buttons: false,
-        timer: 1800,
+        duration: 1800,
       });
     }
   };
@@ -211,9 +384,9 @@ function initAccountPanel() {
       const username = usernameInput?.value?.trim();
 
       if (!email || !password) {
-        setStatus("Email and password are required.", true);
-        return;
-      }
+      setStatus("Email and password are required.", true);
+      return;
+    }
 
       toggleBusy(true);
       setStatus("Working...");
@@ -262,8 +435,8 @@ function initAccountPanel() {
         await signOut(auth);
         setStatus("Signed out.");
         cart = [];
-        refreshCartPanel?.();
-      } catch (error) {
+    refreshCartPanel?.();
+  } catch (error) {
         setStatus(error.message || "Sign out failed.", true);
       } finally {
         toggleBusy(false);
@@ -308,6 +481,8 @@ function initCartPanel() {
   const menu = document.querySelector(".cart-menu");
   const panel = menu?.querySelector(".cart-panel");
   if (!menu || !panel) return;
+  syncPanelParent(menu, panel);
+  const closeBtn = injectNavClose(panel);
 
   const statusEl = panel.querySelector(".cart-status");
   const itemsEl = panel.querySelector(".cart-items");
@@ -321,11 +496,10 @@ function initCartPanel() {
     statusEl.classList.toggle("error", isError);
     const lower = (msg || "").toLowerCase();
     if (msg && !lower.includes("sign out")) {
-      swal({
+      showTransientAlert({
         icon: isError ? "error" : "success",
         title: msg,
-        buttons: false,
-        timer: 1600,
+        duration: 1600,
       });
     }
   };
@@ -353,28 +527,72 @@ function initCartPanel() {
   const openPanel = () => {
     clearTimeout(hideTimeout);
     document.querySelector(".account-menu")?.classList.remove("open");
+    blurMenuLink(".account-menu a");
     menu.classList.add("open");
+    panel.classList.add("open");
     renderCart();
+    if (isMobileNav()) {
+      toggleNavOverlay(true);
+      setPanelScrollLock(true);
+    }
   };
 
   const scheduleHide = () => {
     clearTimeout(hideTimeout);
     hideTimeout = setTimeout(() => {
-      menu.classList.remove("open");
+      closePanel();
     }, 200);
   };
 
-  menu.addEventListener("mouseenter", openPanel);
-  menu.addEventListener("mouseleave", scheduleHide);
-  panel.addEventListener("mouseenter", openPanel);
-  panel.addEventListener("mouseleave", scheduleHide);
+  const closePanel = () => {
+    menu.classList.remove("open");
+    panel.classList.remove("open");
+    forceHideNavPanel(menu);
+    if (!document.querySelector(".account-menu.open")) toggleNavOverlay(false);
+  };
+
+  if (navOverlay) {
+    navOverlay.addEventListener("click", () => {
+      closeAllNavPanels();
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeAllNavPanels();
+    });
+  }
+
   menu.querySelector("a")?.addEventListener("click", (e) => {
     e.preventDefault();
     if (menu.classList.contains("open")) {
       menu.classList.remove("open");
+      panel.classList.remove("open");
+      forceHideNavPanel(menu);
+      setPanelScrollLock(false);
     } else {
       openPanel();
     }
+  });
+
+  menu.addEventListener("mouseenter", () => {
+    if (isMobileNav()) return;
+    blurMenuLink(".account-menu a");
+    openPanel();
+  });
+  menu.addEventListener("mouseleave", () => {
+    if (isMobileNav()) return;
+    scheduleHide();
+  });
+  panel.addEventListener("mouseenter", () => {
+    if (isMobileNav()) return;
+    clearTimeout(hideTimeout);
+  });
+  panel.addEventListener("mouseleave", () => {
+    if (isMobileNav()) return;
+    scheduleHide();
   });
 
   if (clearBtn) {
@@ -388,7 +606,7 @@ function initCartPanel() {
   window.addToCart = (productIndex, color = "") => {
     if (!isLoggedIn()) {
       setCartStatus("Please log in to add items.", true);
-      openPanel();
+      openPanel(false);
       return;
     }
     const product = productData?.[productIndex];
@@ -412,12 +630,34 @@ function initCartPanel() {
     }
     setCartStatus(`Added ${product.name}.`);
     renderCart();
-    openPanel();
+    // Do not auto-open the cart panel after adding an item
   };
 
   window.refreshCartPanel = renderCart;
 
   renderCart();
+
+  window.addEventListener("resize", () => {
+    syncPanelParent(menu, panel);
+    if (isMobileNav()) {
+      panel.classList.remove("open");
+      menu.classList.remove("open");
+    }
+  });
+}
+
+function injectNavClose(panel) {
+  if (!panel) return null;
+  let btn = panel.querySelector(".nav-panel-close");
+  if (!btn) {
+    btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "nav-panel-close";
+    btn.setAttribute("aria-label", "Close panel");
+    btn.innerHTML = "&times;";
+    panel.prepend(btn);
+  }
+  return btn;
 }
 
 $(document).ready(function () {

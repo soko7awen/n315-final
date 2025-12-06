@@ -22,6 +22,58 @@ body {
     font-family: 'MarkOT-Medium','Geneva',Verdana,Arial,Helvetica,'Reader Regular',sans-serif;
 }
 
+body.panel-open {
+    overflow: hidden;
+    touch-action: none;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 500;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.app-toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 9999;
+}
+
+.app-toast {
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+    background: #1f2937;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.app-toast.success {
+    background: #0c7c3a;
+}
+
+.app-toast.error {
+    background: #b71c1c;
+}
+
+.app-toast.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @import url("./nav.scss");
 
 
@@ -76,7 +128,9 @@ img.text-icon {
     display: flex;
     position: relative;
     margin-bottom: 20px;
-    gap: 10px;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .facet {
@@ -94,6 +148,10 @@ img.text-icon {
         font-size: 15px;
         cursor: pointer;
         border-radius: 2px;
+
+        .arrow {
+            min-width: 18px;
+        }
     }
 
     .facet-btn.active {
@@ -113,15 +171,18 @@ img.text-icon {
         position: absolute;
         left: 0px;
         background: #ffffff;
-        z-index: 1;
+        z-index: 620;
         box-sizing: content-box;
-        width: 340px;
+        width: min(340px, calc(100vw - 32px));
         top: 47px;
         height: auto;
         overflow: auto;
         z-index: 101;
         padding-top: 20px;
         font-size: 0.875rem;
+        border-radius: 8px;
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.14);
+        transform: translateX(0);
     }
 
     .facet-panel.open {
@@ -159,6 +220,20 @@ img.text-icon {
         max-height: 249px;
         border: 2px solid #2f4053;
         overflow: auto;
+        background: #fff;
+    }
+
+    .facet-close {
+        display: none;
+        border: none;
+        background: transparent;
+        font-size: 24px;
+        line-height: 1;
+        padding: 10px 12px;
+        cursor: pointer;
+        color: #444;
+        margin-left: auto;
+        margin-right: 4px;
     }
 
     .facet-search {
@@ -520,6 +595,12 @@ img.text-icon {
     }
 }
 
+@media only screen and (max-width: 900px) {
+    .product-card .card-bottom-content {
+        display: block;
+    }
+}
+
 .site-footer {
     margin: 0;
     padding: 0;
@@ -845,12 +926,71 @@ https://www.w3schools.com/css/css_rwd_mediaqueries.asp
 
 /* Medium devices (landscape tablets, 992px and down) */
 @media only screen and (max-width: 992px) {
+    .facets {
+        gap: 10px;
+    }
 
+    .facet {
+        flex-basis: calc(50% - 10px);
+    }
+
+    .facet.sort-by {
+        margin-left: 0;
+    }
+
+    .facet .facet-btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Tablet/mobile facets (900px and down) */
+@media only screen and (max-width: 900px) {
+    .facet {
+        .facet-btn {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .facet-panel {
+            position: fixed;
+            left: 50%;
+            top: 12vh;
+            transform: translate(-50%, 0);
+            width: min(88vw, 420px);
+            max-height: 76vh;
+            padding-top: 10px;
+            border-radius: 12px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+            z-index: 740;
+        }
+
+        .facet-panel-contents {
+            max-height: 66vh;
+            border-width: 1px;
+            border-radius: 10px;
+        }
+
+        .facet-panel-contents::before,
+        .facet-panel-contents::after {
+            display: none;
+        }
+
+        .facet-close {
+            display: block;
+        }
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 768px and down) */
 @media only screen and (max-width: 768px) {
+    .facets {
+        row-gap: 14px;
+    }
 
+    .facet {
+        flex-basis: 100%;
+    }
 }
 
 /* Extra small devices (phones, 600px and down) */

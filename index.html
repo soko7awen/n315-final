@@ -10,6 +10,9 @@
     <header class="navHeader">
       <nav class="topnav" id="myTopnav">
         <div class="primary-bar">
+          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger"></span>
+          </button>
           <img src="./img/wordmark.svg" alt="" class="wordmark">
           <div class="search-container input-container css-ogyjoz" data-qe="div-header-SearchInputContainer">
             <div class="input-group">
@@ -22,7 +25,7 @@
               <li><a href="#page-home"><img src="./img/support.svg" alt="">Support</a></li>
               <li class="account-menu">
                 <a href="#page-home"><img src="./img/person.svg" alt="">Account</a>
-                <div class="account-panel" aria-label="Account panel">
+                <div class="account-panel nav-panel panel" aria-label="Account panel">
                   <div class="auth-toggle">
                     <label><input type="radio" name="authMode" value="signup" checked> Sign up</label>
                     <label><input type="radio" name="authMode" value="login"> Log in</label>
@@ -50,7 +53,7 @@
               </li>
               <li class="cart-menu">
                 <a href="#page-home"><img src="./img/cart.svg" alt="">Cart</a>
-                <div class="cart-panel" aria-label="Cart panel">
+                <div class="cart-panel nav-panel panel" aria-label="Cart panel">
                   <div class="cart-status" role="alert"></div>
                   <div class="cart-items"></div>
                   <div class="cart-actions">
