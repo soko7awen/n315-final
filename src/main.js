@@ -198,12 +198,14 @@ routeList.forEach((route) => {
 //     })
 //     .join("");
 
-//   $nav.html(html);
-// }
+function normalizeRoute(hash) {
+  if (!hash) return "home";
+  const cleaned = hash.replace(/^#?/, "");
+  return cleaned.replace(/^page-/, "") || "home";
+}
 
 function changeRoute() {
-  let pageID = window.location.hash.replace("#", "") || "home";
-
+  const pageID = normalizeRoute(window.location.hash);
   const route = routes[pageID] || routes.home;
   $("#app").html(route.render());
 
