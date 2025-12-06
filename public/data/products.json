@@ -1,0 +1,654 @@
+[
+  {
+    "badgeType": "new",
+    "badge": "NEW",
+    "name": "K-Crema™ Coffee Maker",
+    "image": "/img/products/K-Crema-Coffee-Maker_5000380920_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "99.99",
+      "original": "219.99",
+      "starterKitPrice": "219.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "coupon": {
+      "code": "25% OFF - MILLIESIPS",
+      "note": "Excludes Keurig Starter Kit"
+    },
+    "rating": {
+      "value": 4.5,
+      "count": 117
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "SAVE 50% BY BUILDING A KIT",
+    "name": "K-Brew + Chill™ Coffee Maker",
+    "image": "/img/products/K-Brew-and-Chill-Single-Serve-Coffee-Maker_5000380296_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "99.99",
+      "original": "199.99",
+      "starterKitPrice": "199.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "coupon": {
+      "code": "25% OFF - MILLIESIPS",
+      "note": "Excludes Keurig Starter Kit"
+    },
+    "rating": {
+      "value": 4.4,
+      "count": 553
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "OVER 50% OFF WHEN YOU BUILD A KIT",
+    "name": "K-Duo® Hot & Iced Single Serve & Carafe Coffee Maker (Gen 2)",
+    "image": "/img/products/K-Duo-hot-and-iced-Single-Serve-Carafe-Coffee-Maker-Gen2_5000378536_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "49.99",
+      "original": "219.99",
+      "starterKitPrice": "186.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "33.00 Off",
+    "rating": {
+      "value": 4.6,
+      "count": 639
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "70% OFF WHEN YOU BUILD A KIT",
+    "name": "K-Supreme Plus® Single Serve Coffee Maker",
+    "image": "/img/products/K-Supreme-Plus-Single-Serve-Coffee-Maker_5000368403_swatch",
+    "colors": [
+      "Red"
+    ],
+    "prices": {
+      "discounted": "64.99",
+      "original": "299.99",
+      "starterKitPrice": "129.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "90.00 Off",
+    "rating": {
+      "value": 4.1,
+      "count": 9064
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "SAVE 50% BY BUILDING A KIT",
+    "name": "K-Iced® Single Serve Coffee Maker",
+    "image": "/img/products/k-iced-single-serve-coffee-maker_5000371871_swatch",
+    "colors": [
+      "Gray",
+      "White"
+    ],
+    "prices": {
+      "discounted": "64.99",
+      "original": "129.99",
+      "starterKitPrice": "99.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "30.00 Off",
+    "rating": {
+      "value": 4.4,
+      "count": 541
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "sale",
+    "badge": "SALE - NO CODE REQUIRED",
+    "name": "Keurig® K-Select® Coffee Maker",
+    "image": "/img/products/K-Select-Coffee-Maker_5000359828_swatch",
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "prices": {
+      "discounted": "59.99",
+      "original": "149.99",
+      "starterKitPrice": "99.99"
+    },
+    "siteDeal": "50.00 Off",
+    "rating": {
+      "value": 4.2,
+      "count": 4566
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "OVER 50% OFF WHEN YOU BUILD A KIT",
+    "name": "K-Iced Plus™ Single Serve Coffee Maker",
+    "image": "/img/products/k-iced-plus-single-serve-coffee-maker_5000373472_swatch",
+    "colors": [
+      "Black",
+      "White",
+      "Blue"
+    ],
+    "prices": {
+      "discounted": "69.99",
+      "original": "149.99",
+      "starterKitPrice": "79.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "70.00 Off",
+    "rating": {
+      "value": 4.5,
+      "count": 771
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "50% OFF WHEN YOU BUILD A KIT",
+    "name": "K-Mini Plus® Single Serve Coffee Maker",
+    "image": "/img/products/K-Mini-Plus-Coffee-Maker_5000200239_swatch",
+    "colors": [
+      "Black",
+      "Light Gray",
+      "Teal",
+      "Coral",
+      "Blue"
+    ],
+    "prices": {
+      "discounted": "59.99",
+      "original": "119.99",
+      "starterKitPrice": "99.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "20.00 Off",
+    "rating": {
+      "value": 4,
+      "count": 2923
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "SAVE 50% BY BUILDING A KIT",
+    "name": "K-Café® Special Edition Single Serve Coffee Latte & Cappuccino Maker",
+    "image": "/img/products/K-Cafe-Special-Edition-Coffee-Latte-Cappuccino-Maker_5000341465_swatch",
+    "colors": [
+      "Gray"
+    ],
+    "prices": {
+      "discounted": null,
+      "original": null,
+      "starterKitPrice": null
+    },
+    "stockStatus": "Out of Stock",
+    "rating": {
+      "value": 4.4,
+      "count": 1948
+    },
+    "freeShipping": false
+  },
+  {
+    "badgeType": "new",
+    "badge": "NEW",
+    "name": "Florence by Mills Coffee x Keurig® Brewer Bundle",
+    "image": "/img/products/FBMC-Keurig-Brewer-Bundle_5000391793_bundle",
+    "colors": [
+      "White"
+    ],
+    "prices": {
+      "discounted": null,
+      "original": null,
+      "starterKitPrice": null
+    },
+    "rating": null,
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "SAVE 50% BY BUILDING A KIT",
+    "name": "K-Café® SMART Single Serve Coffee Maker",
+    "image": "/img/products/K-Cafe-SMART-Coffee-Latte-Cappuccino-Maker_5000365485_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "99.99",
+      "original": "199.99",
+      "starterKitPrice": "199.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "coupon": {
+      "code": "25% OFF - MILLIESIPS",
+      "note": "Excludes Keurig Starter Kit"
+    },
+    "rating": {
+      "value": 4.4,
+      "count": 7643
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "exclusive",
+    "badge": "KEURIG.COM EXCLUSIVE",
+    "name": "K-Iced® Coastal Collection Surf",
+    "image": "/img/products/Custom-Spring-K-Iced-Brewer-Custom-Spring-K-Iced-Brewer-Surf_5000391265_swatch",
+    "colors": [
+      "White/Teal"
+    ],
+    "prices": {
+      "discounted": "99.99",
+      "original": "139.99",
+      "starterKitPrice": null
+    },
+    "siteDeal": "40.00 Off",
+    "rating": {
+      "value": 4.4,
+      "count": 541
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "$130 OFF WHEN YOU BUILD A KIT",
+    "name": "K-Supreme® SMART Single Serve Coffee Maker",
+    "image": "/img/products/K-Supreme-SMART-Coffee-Maker_5000367509_swatch",
+    "colors": [
+      "Black",
+      "Gray",
+      "White"
+    ],
+    "prices": {
+      "discounted": "49.99",
+      "original": "179.99",
+      "starterKitPrice": "179.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "coupon": {
+      "code": "25% OFF - MILLIESIPS",
+      "note": "Excludes Keurig Starter Kit"
+    },
+    "rating": {
+      "value": 4.2,
+      "count": 2792
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "SAVE 50% BY BUILDING A KIT",
+    "name": "K-Supreme Plus® SMART Single Serve Coffee Maker",
+    "image": "/img/products/K-Supreme-Plus-SMART-Coffee-Maker_5000365542_swatch",
+    "colors": [
+      "Black",
+      "Silver"
+    ],
+    "prices": {
+      "discounted": "99.99",
+      "original": "199.99",
+      "starterKitPrice": "199.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "coupon": {
+      "code": "25% OFF - MILLIESIPS",
+      "note": "Excludes Keurig Starter Kit"
+    },
+    "rating": {
+      "value": 4.3,
+      "count": 2888
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "exclusive",
+    "badge": "KEURIG.COM EXCLUSIVE",
+    "name": "Florence by Mills Coffee x Keurig® K-Iced® Single Serve Coffee Maker",
+    "image": "/img/products/K-Iced-Brewer-FBMC_5000391793_swatch",
+    "colors": [
+      "Lavender"
+    ],
+    "prices": {
+      "discounted": "139.99",
+      "original": null,
+      "starterKitPrice": null
+    },
+    "rating": {
+      "value": 4.4,
+      "count": 534
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "exclusive",
+    "badge": "KEURIG.COM EXCLUSIVE",
+    "name": "K-Iced® Coastal Collection Fin",
+    "image": "/img/products/Custom-Spring-K-Iced-Brewer-Fin_5000390795_swatch",
+    "colors": [
+      "White/Teal"
+    ],
+    "prices": {
+      "discounted": "99.99",
+      "original": "139.99",
+      "starterKitPrice": null
+    },
+    "siteDeal": "40.00 Off",
+    "rating": {
+      "value": 4.4,
+      "count": 541
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "OVER 50% OFF WHEN YOU BUILD A KIT",
+    "name": "Keurig® K-Elite® Single Serve Coffee Maker",
+    "image": "/img/products/K-Elite-Single-Serve-Coffee-Maker_5000359832_swatch",
+    "colors": [
+      "Silver",
+      "Navy"
+    ],
+    "prices": {
+      "discounted": "99.99",
+      "original": "209.99",
+      "starterKitPrice": "149.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "60.00 Off",
+    "rating": {
+      "value": 4.4,
+      "count": 5871
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "OVER 70% OFF WHEN YOU BUILD A KIT",
+    "name": "K-Duo Plus® Single Serve & Carafe Coffee Maker",
+    "image": "/img/products/K-Duo-Plus-Single-Serve-Carafe-Coffee-Maker_5000363818_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": null,
+      "original": null,
+      "starterKitPrice": null
+    },
+    "stockStatus": "Out of Stock",
+    "rating": {
+      "value": 4.1,
+      "count": 2962
+    },
+    "freeShipping": false
+  },
+  {
+    "badgeType": "kit",
+    "badge": "SAVE 50% BY BUILDING A KIT",
+    "name": "Keurig® K-Classic® Coffee Maker",
+    "image": "/img/products/K50-Coffee-Maker_5000204441_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "84.99",
+      "original": "169.99",
+      "starterKitPrice": "123.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "46.00 Off",
+    "rating": {
+      "value": 4.2,
+      "count": 3371
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "50% OFF WHEN YOU BUILD A KIT",
+    "name": "Keurig® K-Supreme® Single Serve Coffee Maker",
+    "image": "/img/products/K-Supreme-Single-Serve-Coffee-Maker_5000368401_swatch",
+    "colors": [
+      "Black",
+      "Gray",
+      "White"
+    ],
+    "prices": {
+      "discounted": "94.99",
+      "original": "189.99",
+      "starterKitPrice": "189.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "rating": {
+      "value": 4.1,
+      "count": 5587
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "$140 OFF WHEN YOU BUILD A KIT",
+    "name": "K-Duo® Single Serve & Carafe Coffee Maker",
+    "image": "/img/products/K-Duo-Single-Serve-Carafe-Coffee-Maker_5000204977_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": null,
+      "original": null,
+      "starterKitPrice": null
+    },
+    "stockStatus": "Out of Stock",
+    "rating": {
+      "value": 3.8,
+      "count": 3246
+    },
+    "freeShipping": false
+  },
+  {
+    "badgeType": "kit",
+    "badge": "SAVE 50% BY BUILDING A KIT",
+    "name": "Keurig® K-Café® Barista Bar Single Serve Coffee Maker and Milk Frother",
+    "image": "/img/products/K-Cafe-Barista-Bar_5000374606_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "69.99",
+      "original": "139.99",
+      "starterKitPrice": "139.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "rating": {
+      "value": 4.7,
+      "count": 271
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "sale",
+    "badge": "SALE - NO CODE REQUIRED",
+    "name": "K-Café® Single Serve Coffee Latte & Cappuccino Maker",
+    "image": "/img/products/K-Cafe-Coffee-Latte-Cappuccino-Maker_5000201735_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "89.99",
+      "original": "199.99",
+      "starterKitPrice": "119.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "80.00 Off",
+    "rating": {
+      "value": 4.3,
+      "count": 1702
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "OVER 50% OFF WHEN YOU BUILD A KIT",
+    "name": "K-Slim® Single Serve Coffee Maker",
+    "image": "/img/products/K-Slim-Single-Serve-Coffee-Maker_5000363760_swatch",
+    "colors": [
+      "Black",
+      "White",
+      "Red"
+    ],
+    "prices": {
+      "discounted": "69.99",
+      "original": "149.99",
+      "starterKitPrice": "89.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "60.00 Off",
+    "rating": {
+      "value": 4.1,
+      "count": 3756
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "kit",
+    "badge": "50% OFF WHEN YOU BUILD A KIT",
+    "name": "K-Mini® Single Serve Coffee Maker",
+    "image": "/img/products/K-Mini-Coffee-Maker_5000200237_swatch",
+    "colors": [
+      "Black",
+      "Green",
+      "Pink",
+      "Blue",
+      "Gray"
+    ],
+    "prices": {
+      "discounted": "49.99",
+      "original": "99.99",
+      "starterKitPrice": "89.99"
+    },
+    "starterKitNote": "with Keurig® Starter Kit",
+    "siteDeal": "10.00 Off",
+    "rating": {
+      "value": 4,
+      "count": 2279
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": null,
+    "badge": null,
+    "name": "K-Express™ Single Serve Coffee Maker",
+    "image": "/img/products/K-Express-Single-Serve-Coffee-Maker_5000358267_swatch",
+    "colors": [
+      "Black",
+      "Blue",
+      "Pink"
+    ],
+    "prices": {
+      "discounted": "109.99",
+      "original": null,
+      "starterKitPrice": null
+    },
+    "rating": {
+      "value": 4.4,
+      "count": 3736
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": null,
+    "badge": null,
+    "name": "K-1550™ Small Business Coffee Maker",
+    "image": "/img/products/Keurig-K-1550-Commercial-Coffee-Maker_null_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "259.99",
+      "original": null,
+      "starterKitPrice": null
+    },
+    "coupon": {
+      "code": "25% OFF - MILLIESIPS",
+      "note": "Excludes Keurig Starter Kit"
+    },
+    "rating": {
+      "value": 0,
+      "count": 0
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "sale",
+    "badge": "SALE - NO CODE REQUIRED",
+    "name": "Keurig® K-Compact® Coffee Maker",
+    "image": "/img/products/K-Compact-Coffee-Maker_5000376527_swatch",
+    "colors": [
+      "Black"
+    ],
+    "prices": {
+      "discounted": "89.99",
+      "original": "99.99",
+      "starterKitPrice": null
+    },
+    "siteDeal": "10.00 Off",
+    "rating": {
+      "value": 3.8,
+      "count": 857
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": null,
+    "badge": null,
+    "name": "Keurig® K-2550™ Medium Business Coffee Maker - Pour...",
+    "image": "/img/products/Keurig-K-2550-Single-Serve-Commercial-Coffee-Maker_5000204779_swatch",
+    "colors": [
+      "Silver"
+    ],
+    "prices": {
+      "discounted": "749.99",
+      "original": null,
+      "starterKitPrice": null
+    },
+    "coupon": {
+      "code": "25% OFF - MILLIESIPS",
+      "note": "Excludes Keurig Starter Kit"
+    },
+    "rating": {
+      "value": 4,
+      "count": 254
+    },
+    "freeShipping": true
+  },
+  {
+    "badgeType": "exclusive",
+    "badge": "KEURIG.COM EXCLUSIVE",
+    "name": "K-Iced® Coastal Collection Drift",
+    "image": "/img/products/Custom-Spring-K-Iced-Brewer-Drift_5000390794_swatch",
+    "colors": [
+      "White/Teal"
+    ],
+    "prices": {
+      "discounted": "99.99",
+      "original": "139.99",
+      "starterKitPrice": null
+    },
+    "siteDeal": "40.00 Off",
+    "rating": {
+      "value": 4.4,
+      "count": 541
+    },
+    "freeShipping": true
+  }
+]
