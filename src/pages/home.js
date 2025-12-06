@@ -43,7 +43,7 @@ async function renderProducts() {
   if (!grid) return;
 
   try {
-    const response = await fetch('/data/products.json');
+    const response = await fetch('./data/products.json');
     if (!response.ok) throw new Error('Unable to load products');
 
     const products = await response.json();

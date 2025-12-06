@@ -241,6 +241,8 @@ function initAccountPanel() {
       try {
         await signOut(auth);
         setStatus("Signed out.");
+        cart = [];
+        refreshCartPanel?.();
       } catch (error) {
         setStatus(error.message || "Sign out failed.", true);
       } finally {
@@ -262,6 +264,18 @@ function initAccountPanel() {
     clearFields();
     setStatus(isLoggedIn ? `Logged in as ${user.email}` : "");
     refreshLoggedInStatus();
+    if (!isLoggedIn) {
+      cart = [];
+      if (typeof window.refreshCartPanel === "function") {
+        window.refreshCartPanel();
+      }
+      // clear any cart status message when logged out
+      const cartPanel = document.querySelector(".cart-panel .cart-status");
+      if (cartPanel) {
+        cartPanel.textContent = "";
+        cartPanel.classList.remove("error");
+      }
+    }
     refreshCartPanel();
   });
 

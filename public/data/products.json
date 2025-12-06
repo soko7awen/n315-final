@@ -3,7 +3,7 @@
     "badgeType": "new",
     "badge": "NEW",
     "name": "K-Crema™ Coffee Maker",
-    "image": "/img/products/K-Crema-Coffee-Maker_5000380920_swatch",
+    "image": "./img/products/K-Crema-Coffee-Maker_5000380920_swatch",
     "colors": [
       "Black"
     ],
@@ -27,7 +27,7 @@
     "badgeType": "kit",
     "badge": "SAVE 50% BY BUILDING A KIT",
     "name": "K-Brew + Chill™ Coffee Maker",
-    "image": "/img/products/K-Brew-and-Chill-Single-Serve-Coffee-Maker_5000380296_swatch",
+    "image": "./img/products/K-Brew-and-Chill-Single-Serve-Coffee-Maker_5000380296_swatch",
     "colors": [
       "Black"
     ],
@@ -51,7 +51,7 @@
     "badgeType": "kit",
     "badge": "OVER 50% OFF WHEN YOU BUILD A KIT",
     "name": "K-Duo® Hot & Iced Single Serve & Carafe Coffee Maker (Gen 2)",
-    "image": "/img/products/K-Duo-hot-and-iced-Single-Serve-Carafe-Coffee-Maker-Gen2_5000378536_swatch",
+    "image": "./img/products/K-Duo-hot-and-iced-Single-Serve-Carafe-Coffee-Maker-Gen2_5000378536_swatch",
     "colors": [
       "Black"
     ],
@@ -72,7 +72,7 @@
     "badgeType": "kit",
     "badge": "70% OFF WHEN YOU BUILD A KIT",
     "name": "K-Supreme Plus® Single Serve Coffee Maker",
-    "image": "/img/products/K-Supreme-Plus-Single-Serve-Coffee-Maker_5000368403_swatch",
+    "image": "./img/products/K-Supreme-Plus-Single-Serve-Coffee-Maker_5000368403_swatch",
     "colors": [
       "Red"
     ],
@@ -93,7 +93,7 @@
     "badgeType": "kit",
     "badge": "SAVE 50% BY BUILDING A KIT",
     "name": "K-Iced® Single Serve Coffee Maker",
-    "image": "/img/products/k-iced-single-serve-coffee-maker_5000371871_swatch",
+    "image": "./img/products/k-iced-single-serve-coffee-maker_5000371871_swatch",
     "colors": [
       "Gray",
       "White"
@@ -115,7 +115,7 @@
     "badgeType": "sale",
     "badge": "SALE - NO CODE REQUIRED",
     "name": "Keurig® K-Select® Coffee Maker",
-    "image": "/img/products/K-Select-Coffee-Maker_5000359828_swatch",
+    "image": "./img/products/K-Select-Coffee-Maker_5000359828_swatch",
     "colors": [
       "Black",
       "White"
@@ -136,7 +136,7 @@
     "badgeType": "kit",
     "badge": "OVER 50% OFF WHEN YOU BUILD A KIT",
     "name": "K-Iced Plus™ Single Serve Coffee Maker",
-    "image": "/img/products/k-iced-plus-single-serve-coffee-maker_5000373472_swatch",
+    "image": "./img/products/k-iced-plus-single-serve-coffee-maker_5000373472_swatch",
     "colors": [
       "Black",
       "White",
@@ -159,7 +159,7 @@
     "badgeType": "kit",
     "badge": "50% OFF WHEN YOU BUILD A KIT",
     "name": "K-Mini Plus® Single Serve Coffee Maker",
-    "image": "/img/products/K-Mini-Plus-Coffee-Maker_5000200239_swatch",
+    "image": "./img/products/K-Mini-Plus-Coffee-Maker_5000200239_swatch",
     "colors": [
       "Black",
       "Light Gray",
@@ -184,7 +184,7 @@
     "badgeType": "kit",
     "badge": "SAVE 50% BY BUILDING A KIT",
     "name": "K-Café® Special Edition Single Serve Coffee Latte & Cappuccino Maker",
-    "image": "/img/products/K-Cafe-Special-Edition-Coffee-Latte-Cappuccino-Maker_5000341465_swatch",
+    "image": "./img/products/K-Cafe-Special-Edition-Coffee-Latte-Cappuccino-Maker_5000341465_swatch",
     "colors": [
       "Gray"
     ],
@@ -204,7 +204,7 @@
     "badgeType": "new",
     "badge": "NEW",
     "name": "Florence by Mills Coffee x Keurig® Brewer Bundle",
-    "image": "/img/products/FBMC-Keurig-Brewer-Bundle_5000391793_bundle",
+    "image": "./img/products/FBMC-Keurig-Brewer-Bundle_5000391793_bundle",
     "colors": [
       "White"
     ],
@@ -220,7 +220,7 @@
     "badgeType": "kit",
     "badge": "SAVE 50% BY BUILDING A KIT",
     "name": "K-Café® SMART Single Serve Coffee Maker",
-    "image": "/img/products/K-Cafe-SMART-Coffee-Latte-Cappuccino-Maker_5000365485_swatch",
+    "image": "./img/products/K-Cafe-SMART-Coffee-Latte-Cappuccino-Maker_5000365485_swatch",
     "colors": [
       "Black"
     ],
@@ -244,7 +244,7 @@
     "badgeType": "exclusive",
     "badge": "KEURIG.COM EXCLUSIVE",
     "name": "K-Iced® Coastal Collection Surf",
-    "image": "/img/products/Custom-Spring-K-Iced-Brewer-Custom-Spring-K-Iced-Brewer-Surf_5000391265_swatch",
+    "image": "./img/products/Custom-Spring-K-Iced-Brewer-Custom-Spring-K-Iced-Brewer-Surf_5000391265_swatch",
     "colors": [
       "White/Teal"
     ],
@@ -264,7 +264,7 @@
     "badgeType": "kit",
     "badge": "$130 OFF WHEN YOU BUILD A KIT",
     "name": "K-Supreme® SMART Single Serve Coffee Maker",
-    "image": "/img/products/K-Supreme-SMART-Coffee-Maker_5000367509_swatch",
+    "image": "./img/products/K-Supreme-SMART-Coffee-Maker_5000367509_swatch",
     "colors": [
       "Black",
       "Gray",
@@ -290,7 +290,7 @@
     "badgeType": "kit",
     "badge": "SAVE 50% BY BUILDING A KIT",
     "name": "K-Supreme Plus® SMART Single Serve Coffee Maker",
-    "image": "/img/products/K-Supreme-Plus-SMART-Coffee-Maker_5000365542_swatch",
+    "image": "./img/products/K-Supreme-Plus-SMART-Coffee-Maker_5000365542_swatch",
     "colors": [
       "Black",
       "Silver"
@@ -315,7 +315,7 @@
     "badgeType": "exclusive",
     "badge": "KEURIG.COM EXCLUSIVE",
     "name": "Florence by Mills Coffee x Keurig® K-Iced® Single Serve Coffee Maker",
-    "image": "/img/products/K-Iced-Brewer-FBMC_5000391793_swatch",
+    "image": "./img/products/K-Iced-Brewer-FBMC_5000391793_swatch",
     "colors": [
       "Lavender"
     ],
@@ -334,7 +334,7 @@
     "badgeType": "exclusive",
     "badge": "KEURIG.COM EXCLUSIVE",
     "name": "K-Iced® Coastal Collection Fin",
-    "image": "/img/products/Custom-Spring-K-Iced-Brewer-Fin_5000390795_swatch",
+    "image": "./img/products/Custom-Spring-K-Iced-Brewer-Fin_5000390795_swatch",
     "colors": [
       "White/Teal"
     ],
@@ -354,7 +354,7 @@
     "badgeType": "kit",
     "badge": "OVER 50% OFF WHEN YOU BUILD A KIT",
     "name": "Keurig® K-Elite® Single Serve Coffee Maker",
-    "image": "/img/products/K-Elite-Single-Serve-Coffee-Maker_5000359832_swatch",
+    "image": "./img/products/K-Elite-Single-Serve-Coffee-Maker_5000359832_swatch",
     "colors": [
       "Silver",
       "Navy"
@@ -376,7 +376,7 @@
     "badgeType": "kit",
     "badge": "OVER 70% OFF WHEN YOU BUILD A KIT",
     "name": "K-Duo Plus® Single Serve & Carafe Coffee Maker",
-    "image": "/img/products/K-Duo-Plus-Single-Serve-Carafe-Coffee-Maker_5000363818_swatch",
+    "image": "./img/products/K-Duo-Plus-Single-Serve-Carafe-Coffee-Maker_5000363818_swatch",
     "colors": [
       "Black"
     ],
@@ -396,7 +396,7 @@
     "badgeType": "kit",
     "badge": "SAVE 50% BY BUILDING A KIT",
     "name": "Keurig® K-Classic® Coffee Maker",
-    "image": "/img/products/K50-Coffee-Maker_5000204441_swatch",
+    "image": "./img/products/K50-Coffee-Maker_5000204441_swatch",
     "colors": [
       "Black"
     ],
@@ -417,7 +417,7 @@
     "badgeType": "kit",
     "badge": "50% OFF WHEN YOU BUILD A KIT",
     "name": "Keurig® K-Supreme® Single Serve Coffee Maker",
-    "image": "/img/products/K-Supreme-Single-Serve-Coffee-Maker_5000368401_swatch",
+    "image": "./img/products/K-Supreme-Single-Serve-Coffee-Maker_5000368401_swatch",
     "colors": [
       "Black",
       "Gray",
@@ -439,7 +439,7 @@
     "badgeType": "kit",
     "badge": "$140 OFF WHEN YOU BUILD A KIT",
     "name": "K-Duo® Single Serve & Carafe Coffee Maker",
-    "image": "/img/products/K-Duo-Single-Serve-Carafe-Coffee-Maker_5000204977_swatch",
+    "image": "./img/products/K-Duo-Single-Serve-Carafe-Coffee-Maker_5000204977_swatch",
     "colors": [
       "Black"
     ],
@@ -459,7 +459,7 @@
     "badgeType": "kit",
     "badge": "SAVE 50% BY BUILDING A KIT",
     "name": "Keurig® K-Café® Barista Bar Single Serve Coffee Maker and Milk Frother",
-    "image": "/img/products/K-Cafe-Barista-Bar_5000374606_swatch",
+    "image": "./img/products/K-Cafe-Barista-Bar_5000374606_swatch",
     "colors": [
       "Black"
     ],
@@ -479,7 +479,7 @@
     "badgeType": "sale",
     "badge": "SALE - NO CODE REQUIRED",
     "name": "K-Café® Single Serve Coffee Latte & Cappuccino Maker",
-    "image": "/img/products/K-Cafe-Coffee-Latte-Cappuccino-Maker_5000201735_swatch",
+    "image": "./img/products/K-Cafe-Coffee-Latte-Cappuccino-Maker_5000201735_swatch",
     "colors": [
       "Black"
     ],
@@ -500,7 +500,7 @@
     "badgeType": "kit",
     "badge": "OVER 50% OFF WHEN YOU BUILD A KIT",
     "name": "K-Slim® Single Serve Coffee Maker",
-    "image": "/img/products/K-Slim-Single-Serve-Coffee-Maker_5000363760_swatch",
+    "image": "./img/products/K-Slim-Single-Serve-Coffee-Maker_5000363760_swatch",
     "colors": [
       "Black",
       "White",
@@ -523,7 +523,7 @@
     "badgeType": "kit",
     "badge": "50% OFF WHEN YOU BUILD A KIT",
     "name": "K-Mini® Single Serve Coffee Maker",
-    "image": "/img/products/K-Mini-Coffee-Maker_5000200237_swatch",
+    "image": "./img/products/K-Mini-Coffee-Maker_5000200237_swatch",
     "colors": [
       "Black",
       "Green",
@@ -548,7 +548,7 @@
     "badgeType": null,
     "badge": null,
     "name": "K-Express™ Single Serve Coffee Maker",
-    "image": "/img/products/K-Express-Single-Serve-Coffee-Maker_5000358267_swatch",
+    "image": "./img/products/K-Express-Single-Serve-Coffee-Maker_5000358267_swatch",
     "colors": [
       "Black",
       "Blue",
@@ -569,7 +569,7 @@
     "badgeType": null,
     "badge": null,
     "name": "K-1550™ Small Business Coffee Maker",
-    "image": "/img/products/Keurig-K-1550-Commercial-Coffee-Maker_null_swatch",
+    "image": "./img/products/Keurig-K-1550-Commercial-Coffee-Maker_null_swatch",
     "colors": [
       "Black"
     ],
@@ -592,7 +592,7 @@
     "badgeType": "sale",
     "badge": "SALE - NO CODE REQUIRED",
     "name": "Keurig® K-Compact® Coffee Maker",
-    "image": "/img/products/K-Compact-Coffee-Maker_5000376527_swatch",
+    "image": "./img/products/K-Compact-Coffee-Maker_5000376527_swatch",
     "colors": [
       "Black"
     ],
@@ -612,7 +612,7 @@
     "badgeType": null,
     "badge": null,
     "name": "Keurig® K-2550™ Medium Business Coffee Maker - Pour...",
-    "image": "/img/products/Keurig-K-2550-Single-Serve-Commercial-Coffee-Maker_5000204779_swatch",
+    "image": "./img/products/Keurig-K-2550-Single-Serve-Commercial-Coffee-Maker_5000204779_swatch",
     "colors": [
       "Silver"
     ],
@@ -635,7 +635,7 @@
     "badgeType": "exclusive",
     "badge": "KEURIG.COM EXCLUSIVE",
     "name": "K-Iced® Coastal Collection Drift",
-    "image": "/img/products/Custom-Spring-K-Iced-Brewer-Drift_5000390794_swatch",
+    "image": "./img/products/Custom-Spring-K-Iced-Brewer-Drift_5000390794_swatch",
     "colors": [
       "White/Teal"
     ],
