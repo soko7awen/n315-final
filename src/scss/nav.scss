@@ -1,5 +1,5 @@
 :root {
-    --nav-font-base-size: calc(.475vw + .475em);
+    --nav-font-base-size: calc(.55vw + .45em);
     --nav-icon-size: 50px;
     --nav-bg-color: rgb(50, 32, 63);
     --nav-bg-hover: rgb(68, 54, 78);
@@ -90,6 +90,8 @@ img.text-icon {
             li {
                 margin: 0 8px;
                 padding: 8px;
+                position: relative;
+
                 a {
                     img {
                         width: 32px;
@@ -98,6 +100,222 @@ img.text-icon {
                     }
                 }
             }
+        }
+    }
+
+    .account-menu {
+        position: relative;
+
+        .account-panel {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 110%;
+            background: white;
+            border: 1px solid #d2d2d2;
+            border-radius: 8px;
+            padding: 16px;
+            min-width: 240px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+            z-index: 20;
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                margin-bottom: 10px;
+                font-size: 0.85rem;
+
+                input {
+                    padding: 8px 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 6px;
+                    font-size: 0.95rem;
+                }
+            }
+
+            .auth-toggle {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 12px;
+                font-weight: 600;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    cursor: pointer;
+                }
+            }
+
+            .fields {
+                display: flex;
+                flex-direction: column;
+
+                .username-field {
+                    display: flex;
+                }
+
+                .password-field {
+                    display: flex;
+                }
+            }
+
+            .auth-status {
+                min-height: 18px;
+                font-size: 0.85rem;
+                margin: 6px 0 10px 0;
+                color: #4E36AB;
+
+                &.error {
+                    color: #c60000;
+                }
+            }
+
+            .auth-actions {
+                display: flex;
+                gap: 8px;
+
+                button {
+                    flex: 1;
+                    padding: 9px 0;
+                    border-radius: 6px;
+                    border: 1px solid #4E36AB;
+                    background: #4E36AB;
+                    color: white;
+                    font-weight: 600;
+                    cursor: pointer;
+
+                    &.auth-signout {
+                        background: white;
+                        color: #4E36AB;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 0 0 2px #4E36AB33;
+                    }
+
+                    &:disabled {
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+
+            &.is-logged-in {
+                .auth-toggle,
+                .fields,
+                .auth-submit {
+                    display: none !important;
+                }
+                .auth-signout {
+                    display: block;
+                }
+            }
+
+            &.mode-login {
+                .username-field {
+                    display: none;
+                }
+            }
+
+            &.mode-signup {
+                .username-field {
+                    display: flex;
+                }
+            }
+        }
+
+        &:hover .account-panel,
+        &:focus-within .account-panel {
+            display: block;
+        }
+
+        &.open .account-panel {
+            display: block;
+        }
+    }
+
+    .cart-menu {
+        position: relative;
+
+        .cart-panel {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 110%;
+            background: white;
+            border: 1px solid #d2d2d2;
+            border-radius: 8px;
+            padding: 12px;
+            min-width: 260px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+            z-index: 20;
+
+            .cart-status {
+                min-height: 18px;
+                font-size: 0.9rem;
+                margin-bottom: 8px;
+                color: #333;
+
+                &.error {
+                    color: #c60000;
+                }
+            }
+
+            .cart-items {
+                max-height: 200px;
+                overflow-y: auto;
+                margin-bottom: 10px;
+
+                .cart-item {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 10px;
+                    padding: 6px 0;
+                    border-bottom: 1px solid #eee;
+                    font-size: 0.9rem;
+
+                    .cart-item-qty {
+                        color: #666;
+                    }
+
+                    .cart-item-color {
+                        color: #666;
+                        font-size: 0.85rem;
+                        min-width: 60px;
+                    }
+                }
+
+                .cart-empty {
+                    margin: 0;
+                    font-size: 0.9rem;
+                    color: #666;
+                }
+            }
+
+            .cart-actions {
+                display: flex;
+                justify-content: flex-end;
+
+                .cart-clear {
+                    padding: 6px 10px;
+                    border: 1px solid #ccc;
+                    background: #f9f9f9;
+                    border-radius: 6px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: #eee;
+                    }
+                }
+            }
+        }
+
+        &:hover .cart-panel,
+        &:focus-within .cart-panel,
+        &.open .cart-panel {
+            display: block;
         }
     }
 

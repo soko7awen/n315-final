@@ -20,8 +20,44 @@
             <span>FREE SHIPPING $35+</span>
             <ul class="ultimate-primary-menu">
               <li><a href="#page-home"><img src="./img/support.svg" alt="">Support</a></li>
-              <li><a href="#page-home"><img src="./img/person.svg" alt="">Account</a></li>
-              <li><a href="#page-home"><img src="./img/cart.svg" alt="">Cart</a></li>
+              <li class="account-menu">
+                <a href="#page-home"><img src="./img/person.svg" alt="">Account</a>
+                <div class="account-panel" aria-label="Account panel">
+                  <div class="auth-toggle">
+                    <label><input type="radio" name="authMode" value="signup" checked> Sign up</label>
+                    <label><input type="radio" name="authMode" value="login"> Log in</label>
+                  </div>
+                  <div class="fields">
+                    <label class="field username-field">
+                      <span>Username</span>
+                      <input type="text" name="username" autocomplete="username" placeholder="yourusername">
+                    </label>
+                    <label class="field email-field">
+                      <span>Email</span>
+                      <input type="email" name="email" autocomplete="email" placeholder="you@example.com">
+                    </label>
+                    <label class="field password-field">
+                      <span>Password</span>
+                      <input type="password" name="password" autocomplete="current-password" placeholder="••••••••">
+                    </label>
+                  </div>
+                  <div class="auth-status" role="alert"></div>
+                  <div class="auth-actions">
+                    <button type="button" class="auth-submit">Continue</button>
+                    <button type="button" class="auth-signout">Sign out</button>
+                  </div>
+                </div>
+              </li>
+              <li class="cart-menu">
+                <a href="#page-home"><img src="./img/cart.svg" alt="">Cart</a>
+                <div class="cart-panel" aria-label="Cart panel">
+                  <div class="cart-status" role="alert"></div>
+                  <div class="cart-items"></div>
+                  <div class="cart-actions">
+                    <button type="button" class="cart-clear">Clear Cart</button>
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -42,6 +78,99 @@
       </nav>
     </header>
     <div id="app"></div>
+    <footer data-at-id="footer-container" data-qe="div-footer-footerContainer" class="site-footer css-167ukfi">
+      <div class="footer-inner">
+        <div class="footer-support row">
+          <a href="#page-home" class="footer-find-store">Find a Store</a>
+          <div class="footer-support-contact">
+            <a href="tel:866-901-2739" class="footer-support-phone">Customer Support: 866-901-BREW(2739)</a>
+          </div>
+          <div class="footer-follow">
+            <span class="footer-follow-label">Follow Us</span>
+            <div class="footer-socials">
+              <a href="#page-home" aria-label="Twitter" class="social-icon twitter"></a>
+              <a href="#page-home" aria-label="Facebook" class="social-icon facebook"></a>
+              <a href="#page-home" aria-label="Instagram" class="social-icon instagram"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-main row">
+          <div class="footer-columns col">
+            <div class="footer-column">
+              <h3>Shop</h3>
+              <ul>
+                <li><a href="#page-home">Coffee Makers</a></li>
+                <li><a href="#page-home">Beverages</a></li>
+                <li><a href="#page-home">Iced</a></li>
+              </ul>
+              <h3>Orders</h3>
+              <ul>
+                <li><a href="#page-home">Track Your Order</a></li>
+                <li><a href="#page-home">Returns</a></li>
+                <li><a href="#page-home">Auto Delivery Orders</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Helpful Info</h3>
+              <ul>
+                <li><a href="#page-home">Register Your Appliance</a></li>
+                <li><a href="#page-home">Support</a></li>
+                <li><a href="#page-home">Product Recall</a></li>
+                <li><a href="#page-home">Business Solution</a></li>
+                <li><a href="#page-home">Site Map</a></li>
+                <li><a href="#page-home">Contact Us</a></li>
+                <li><a href="#page-home">CA Notice at Collection</a></li>
+                <li><a href="#page-home">Do Not Sell or Share My Personal Information</a></li>
+                <li><a href="#page-home">Keurig Perks Terms and Conditions</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>About Us</h3>
+              <ul>
+                <li><a href="#page-home">About Us</a></li>
+                <li><a href="#page-home">News</a></li>
+                <li><a href="#page-home">Careers</a></li>
+                <li><a href="#page-home">Sustainability</a></li>
+                <li><a href="#page-home">Accepted Payment</a></li>
+              </ul>
+            </div>
+            <div class="footer-column footer-newsletter">
+              <h3>Join Our Mailing List</h3>
+              <p>Stay up-to-date with the latest news and new arrivals direct to your inbox.</p>
+              <form>
+                <label class="sr-only" for="footer-email">Your email</label>
+                <input id="footer-email" type="email" placeholder="Your email" autocomplete="email" />
+                <button type="submit">Sign Up</button>
+              </form>
+              <div class="footer-country">
+                <label for="country-select">Select Country</label>
+                <div class="country-selector-wrapper">
+                  <select id="country-select" name="country">
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-legal row bottom-line">
+            <p>© 2025 Keurig Green Mountain, Inc. - All Rights Reserved</p>
+            <ul class="footer-links">
+              <li><a href="#page-home">Terms of Use</a></li>
+              <li><a href="#page-home">Privacy Policy</a></li>
+              <li><a href="#page-home">Modern Slavery Act</a></li>
+            </ul>
+          </div>
+          <div class="footer-trademark bottom-line">
+            <p>All trademarks are the property of their respective owners, used with permission.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

@@ -47,7 +47,13 @@ async function renderProducts() {
     if (!response.ok) throw new Error('Unable to load products');
 
     const products = await response.json();
+    window.productData = products; // expose for cart usage
+    if (typeof window.setProductData === 'function') {
+      window.setProductData(products);
+    }
     grid.innerHTML = products.map(createProductCard).join('');
+    attachColorOptionHandlers();
+    attachAddToCartHandlers();
   } catch (error) {
     console.error(error);
     grid.innerHTML = `<p class="error">Unable to load products right now.</p>`;
@@ -62,7 +68,7 @@ function createProductCard(product, index) {
     ? product.colors
         .map(
           (color, colorIndex) =>
-            `<button tabindex="0" role="button" aria-label="${color}" class="${
+            `<button tabindex="0" role="button" aria-label="${color}" data-color="${color}" class="${
               colorIndex === 0 ? 'selected ' : ''
             }color-option"><span class="color-option-fill" style="background-color: ${color};"></span></button>`
         )
@@ -126,7 +132,7 @@ function createProductCard(product, index) {
       </div>
 
       <div class="card-bottom-content">
-        <button class="buy-button">BUY NOW</button>
+        <button class="buy-button" data-product-index="${index}">Add to Cart</button>
       </div>
     </div>
   </div>`;
@@ -159,4 +165,30 @@ function formatPrice(value) {
   if (!value) return '';
   const [dollars, cents = '00'] = String(value).split('.');
   return `<sup>$</sup>${dollars}<sup>${cents.padEnd(2, '0').slice(0, 2)}</sup>`;
+}
+
+function attachColorOptionHandlers() {
+  document.querySelectorAll('.product-card').forEach((card) => {
+    const options = card.querySelectorAll('.color-option');
+    options.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        options.forEach((o) => o.classList.remove('selected'));
+        btn.classList.add('selected');
+      });
+    });
+  });
+}
+
+function attachAddToCartHandlers() {
+  document.querySelectorAll('.buy-button[data-product-index]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.getAttribute('data-product-index'));
+      if (Number.isNaN(idx)) return;
+      const card = btn.closest('.product-card');
+      const selectedColor = card?.querySelector('.color-option.selected')?.getAttribute('data-color') || "";
+      if (typeof window.addToCart === 'function') {
+        window.addToCart(idx, selectedColor);
+      }
+    });
+  });
 }
