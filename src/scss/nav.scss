@@ -701,7 +701,7 @@ body.panel-open {
 @media screen and (max-width: 900px) {
     .nav-panel {
         position: fixed;
-        left: 50%;
+        left: 50vw;
         top: 14vh;
         transform: translateX(-50%);
         width: min(90vw, 480px);

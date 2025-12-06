@@ -954,7 +954,7 @@ https://www.w3schools.com/css/css_rwd_mediaqueries.asp
 
         .facet-panel {
             position: fixed;
-            left: 50%;
+            left: 50vw;
             top: 12vh;
             transform: translate(-50%, 0);
             width: min(88vw, 420px);
