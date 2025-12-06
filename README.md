@@ -37,3 +37,4 @@ VITE_FIREBASE_APP_ID=...
 - Auth state drives UI: when logged out, cart is cleared; when logged in, the account panel hides the submit CTA and shows a sign-out button.
 - Cart badge and drawer stay in sync with the JSON-loaded products and selected color options.
 - Data is in-memory/local; refreshing the page resets cart items and ephemeral state (per assignment requirements).
+- Technically contains hash-routing capability, but this is not actually seen in use. You can test out one of the pages in `src/pages` by adding a, or altering the existing, hash string like `#page-about` to the end of the url.
